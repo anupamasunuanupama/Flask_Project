@@ -1,0 +1,23 @@
+{% extends "patienthome.html" %}
+{% block content %}
+<div class="container mt-5">
+    <table class="table table-striped bg-white">
+       <tr>
+           <th>Question</th>
+           <th>Answer</th>
+           <th>Date</th>
+           <th>Action</th>
+        </tr>
+{% for item in res %}
+<tr>
+    <td>{{item["question"]}}</td>
+    <td>{{item["answer"]}}</td>
+    <td>{{item["date"]}}</td>
+    <form method="post">
+        <td><button name="submit" type="submit" value="{{item['id']}}" class="btn btn-danger">Delete</button></td>
+    </form>
+</tr>
+{% endfor %}
+</table>
+</div>   
+{% endblock %}

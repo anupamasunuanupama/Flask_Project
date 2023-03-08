@@ -1,0 +1,29 @@
+{% extends "doctorhome.html" %}
+{% block content %}
+
+<div class="container mt-5">
+{% with messages=get_flashed_messages() %}
+    {% if messages %}
+      {% for message in messages %}
+        <h2 style="color:red">{{message}}
+      {% endfor %}
+    {% endif %}
+{% endwith %}
+<table class="table table-striped bg-white">
+    <tr>
+        <th>Question</th>
+        <th>Answer</th>
+        <th>Date</th>
+    </tr>
+{% for qa in qanda %}
+<tr>
+    <form method="post">
+        <td>{{qa['question']}}</td>
+        <td><input type="text" name="ans" class="form-control" value="{{qa['answer']}}"></td>
+        <td>{{qa['date']}}</td>
+        <td><button name="submit" type="submit" class="btn btn-warning" value="{{qa['id']}}">Submit</button></td>
+    </form>
+{% endfor %}
+</table>
+</div>
+{% endblock%}
