@@ -5,7 +5,7 @@
 {% with messages=get_flashed_messages() %}
     {% if messages %}
       {% for message in messages %}
-        <h2 style="color:red">{{message}}
+        <h2 style="color:red">{{message}}</h2>
       {% endfor %}
     {% endif %}
 {% endwith %}
@@ -18,11 +18,12 @@
 {% for qa in qanda %}
 <tr>
     <form method="post">
-        <td>{{qa['question']}}</td>
-        <td><input type="text" name="ans" class="form-control" value="{{qa['answer']}}"></td>
-        <td>{{qa['date']}}</td>
+        <td>{{qa['Question']}}</td>
+        <td><input type="text" name="ans" class="form-control" value="{{qa['Answer']}}"></td>
+        <td>{{qa['Date']}}</td>
         <td><button name="submit" type="submit" class="btn btn-warning" value="{{qa['id']}}">Submit</button></td>
     </form>
+</tr>
 {% endfor %}
 </table>
 </div>

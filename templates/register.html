@@ -10,20 +10,19 @@
     {% endif %}
 {% endwith %}
 
-    <form method="post">
-    <input name="name" type="text" placeholder="name"/>
-    <label for="usertype">usertype</label>
-    <select name="usertype" id="">
-     <option value=""></option>
-     <option value="patient">Patient</option>
-     <option value="doctor">Doctor</option>
-    </select>
-    <input name="username" type="text" placeholder="username"/>
-    <input name="password" type="text" placeholder="password"/>
-    <input name="email" type="text" placeholder="email"/>
-    <button name"submit" type="submit">Register</button>
-    <p class="messages">Already registered<a href="#">submit</a></p>
-</form>
+    <form method="POST">
+        <input name="name" type="text" placeholder="name"/>
+        <label for="usertype">usertype</label>
+        <select name="usertype" id="">
+            <option value=""></option>
+            <option value="patient">Patient</option>
+            <option value="doctor">Doctor</option>
+        </select>
+        <input name="username" type="text" placeholder="username"/>
+        <input name="password" type="text" placeholder="password"/>
+        <input name="email" type="text" placeholder="email"/>
+        <button name="submit" type="submit">Register</button>
+    </form>
     You have an account <a href="/">Here</a>
 
  {% endblock %}

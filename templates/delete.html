@@ -1,4 +1,4 @@
-{% extends "patienthome.html" %}
+{% extends "doctorhome.html" %}
 {% block content %}
 <div class="container mt-5">
     <table class="table table-striped bg-white">
@@ -10,14 +10,14 @@
         </tr>
 {% for item in res %}
 <tr>
-    <td>{{item["question"]}}</td>
-    <td>{{item["answer"]}}</td>
-    <td>{{item["date"]}}</td>
+    <td>{{item["Question"]}}</td>
+    <td>{{item["Answer"]}}</td>
+    <td>{{item["Date"]}}</td>
     <form method="post">
         <td><button name="submit" type="submit" value="{{item['id']}}" class="btn btn-danger">Delete</button></td>
     </form>
 </tr>
 {% endfor %}
-</table>
+    </table>
 </div>   
 {% endblock %}

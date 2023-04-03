@@ -22,30 +22,58 @@ def SignIn():
             flash("Username or password incorrect")
             
     return render_template("login.html")
-@public.route("/register",methods=["post","get"])
+
+
+# @public.route("/register",methods=["post","get"])
+# def SignUp():
+#     if 'submit' in request.form:
+#         name=request.form['name']
+#         usertype=request.form['usertype']
+#         username=request.form['username']
+#         password=request.form['password']
+#         email=request.form['email']
+        
+#         sql="SELECT * FROM user WHERE username=%s OR email=%s"
+#         val=(username,email)
+#         CR.execute(sql,val)
+#         result=CR.fetchall()
+        
+#         if result:
+#             flash("Username or email id already exists")
+#         else:
+#             sql='INSERT INTO user (name,usertype,username,password,email) VALUES(%s,%s,%s,%s,%s)'
+#             val=(name,usertype,username,password,email)
+#             CR.execute(sql,val)
+#             DB.commit()
+#             return render_template("login.html")
+        
+#     return render_template("register.html")
+
+
+
+@public.route("/register",methods=["POST","GET"])
 def SignUp():
-    if 'submit' in request.form:
+    if "submit" in request.form:
+        print("working-------------------------------------")
         name=request.form['name']
         usertype=request.form['usertype']
         username=request.form['username']
         password=request.form['password']
         email=request.form['email']
-        
-        sql="SELECT * FROM user WHERE username=%s OR email=%s"
-        val=(username,email)
+        sql='INSERT INTO user (name,usertype,username,password,email) VALUES(%s,%s,%s,%s,%s)'
+        val=(name,usertype,username,password,email)
         CR.execute(sql,val)
-        result=CR.fetchall()
-        
-        if result:
-            flash("Username or email id already exists")
-        else:
-            sql='INSERT INTO user (name,usertype,username,password,email)VALUES(%s,%s,%s,%s,%s)'
-            val=(name,usertype,username,password,email)
-            CR.execute(sql,val)
-            DB.commit()
-            return render_template("login.html")
-        
-    return render_template("register.html")
+        DB.commit()
+        return redirect(url_for('public.SignIn'))
+    
+    return render_template('register.html')
+
+
+
+
+
+
+
 
 @public.route("/logout")
 def logout():

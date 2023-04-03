@@ -109,15 +109,10 @@ body {
     <div class="login-page">
         <div class="form">
           {% block content %}
-          <form class="register-form">
-            <input type="text" placeholder="name"/>
-            <input type="password" placeholder="password"/>
-            <input type="text" placeholder="email address"/>
-            <button>create</button>
-          </form>
-          <form class="login-form">
-            <input type="text" placeholder="username"/>
-            <input type="password" placeholder="password"/>
+         
+          <form class="login-form" method="post">
+            <input type="text" name="username" placeholder="username"/>
+            <input type="password" name="password" placeholder="password"/>
             <button type="submit" name="submit">login</button>
             <p class="message">Not registered? <a href="/register">Create an account</a></p>
           </form>
